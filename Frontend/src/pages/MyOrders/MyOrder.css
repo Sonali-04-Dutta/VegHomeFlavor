@@ -1,0 +1,212 @@
+.my-orders {
+  margin: 100px auto;
+  max-width: 1000px;
+  padding: 0 20px;
+  font-family: "Poppins", sans-serif;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.my-orders h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #e91e63;
+  margin-bottom: 40px;
+  font-weight: 600;
+ letter-spacing: 0.5px;
+}
+
+
+.my-orders .container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.my-orders-order {
+  display: grid;
+  grid-template-columns: 60px 2fr 1fr 1fr 1fr auto;
+  align-items: center;
+  gap: 20px;
+  background: #fff0f6;
+  border: 1px solid #f8bbd0;
+  border-radius: 16px;
+  padding: 18px 22px;
+  box-shadow: 0 4px 10px rgba(233, 30, 99, 0.1);
+  transition: all 0.3s ease;
+}
+
+
+.my-orders-order:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(233, 30, 99, 0.15);
+  background: #ffe6ee;
+
+}
+
+.my-orders-order img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.1));
+
+}
+
+.my-orders-order p {
+  margin: 0;
+  font-size: 14px;
+  /* color: #444; */
+}
+
+.my-orders-order p span {
+  color: #e91e63;
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+
+/* 🔖 Status Badge Styling */
+.status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: capitalize;
+  text-align: center;
+  transition: all 0.3s ease;
+  color: #fff;
+}
+
+/* ✅ Pink “Food Processing / Preparing” badge */
+/* ✅ Pink “Food Processing / Preparing / Processing” badge */
+.status-badge.preparing,
+.status-badge.food-processing,
+.status-badge.processing {
+  background: linear-gradient(135deg, #ff69b4, #e91e63);
+  color: #fff;
+}
+
+
+
+/* .status-badge.delivered {
+  background: #4caf50;
+}
+
+.status-badge.preparing {
+  background: #ff9800;
+}
+
+.status-badge.cancelled {
+  background: #f44336;
+}
+
+.status-badge.default {
+  background: #9e9e9e;
+} */
+
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.status-badge.food-processing { background-color: #FF69B4; } /* Pink */
+.status-badge.out-for-delivery { background-color: #1E90FF; } /* Blue */
+.status-badge.delivered { background-color: #28A745; } /* Green */
+.status-badge.default { background-color: #6c757d; } /* Gray */
+
+
+.status-badge:hover {
+  transform: scale(1.08);
+}
+
+/* 🛍️ Empty State */
+.no-orders {
+  text-align: center;
+  margin-top: 80px;
+  color: #666;
+  animation: fadeIn 0.6s ease-in-out;
+  margin-top: 40px; /* 🔹 reduced from 80px to 40px for smaller gap */
+}
+
+.no-orders img {
+  width: 160px;
+  opacity: 0.8;
+  margin-bottom: 15px;
+}
+
+.no-orders h3 {
+  font-size: 22px;
+  color: #e91e63;
+  margin-bottom: 8px;
+}
+
+.no-orders p {
+  font-size: 15px;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.shop-now-btn {
+  display: inline-block;
+  background: #e91e63;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.shop-now-btn:hover {
+  background: #d81b60;
+  transform: scale(1.05);
+}
+
+.my-orders-order button {
+  background: linear-gradient(135deg, #ff4081, #f50057);
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.my-orders-order button:hover {
+  background: linear-gradient(135deg, #f50057, #c51162);
+  transform: scale(1.05);
+}
+
+
+/* ✨ Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .my-orders-order {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .my-orders-order img {
+    margin: 0 auto;
+  }
+
+  .my-orders-order button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,231 @@
+.order {
+  padding: 40px 60px;
+  /* left:50px; */
+  margin-left: 140px;
+  background: #f8fafc;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  /* gap: 2px; */
+}
+
+/* Centered Header */
+.order h3 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #212121;
+  margin-bottom: 40px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.order h3::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, #f50057, #ff8a00);
+  border-radius: 6px;
+}
+
+/* Keep your existing order-list styling as before */
+.order-list {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+/* Order List Container */
+.order-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Each Order Card */
+.order-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 22px 28px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.order-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(245, 0, 87, 0.2);
+}
+
+/* Parcel Icon */
+.order-item img {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  margin-right: 22px;
+  background: #ffe6ef;
+  border-radius: 14px;
+  padding: 10px;
+}
+
+/* Food Item Info */
+.order-item-food {
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.order-item-name {
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+.order-item-address {
+  color: #777;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.order-item-phone {
+  font-size: 14px;
+  color: #555;
+  font-weight: 500;
+}
+
+/* Right-side Info (Count & Price) */
+.order-item > p {
+  margin-left: 10px;
+  font-weight: 600;
+  color: #333;
+  min-width: 90px;
+  text-align: right;
+}
+
+/* Stylish Dropdown */
+.order-item select {
+  background: linear-gradient(90deg, #f50057, #ff4081);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(245, 0, 87, 0.25);
+}
+
+.order-item select:hover {
+  background: linear-gradient(90deg, #ff4081, #f50057);
+  transform: scale(1.05);
+}
+
+.order-item select:focus {
+  box-shadow: 0 0 0 3px rgba(245, 0, 87, 0.25);
+}
+
+/* Dropdown Options */
+.order-item option {
+  background: #fff;
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .order {
+    padding: 30px 40px;
+  }
+
+  .order-item {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .order-item img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .order-item select {
+    padding: 7px 12px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .order {
+    padding: 20px;
+  }
+
+  .order h3 {
+    font-size: 24px;
+  }
+
+  .order-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 18px;
+  }
+
+  .order-item img {
+    margin-bottom: 8px;
+  }
+
+  .order-item > p {
+    text-align: left;
+  }
+
+  .order-item select {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .order h3 {
+    font-size: 22px;
+  }
+
+  .order-item {
+    padding: 16px;
+  }
+
+  .order-item img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .order-item select {
+    font-size: 12.5px;
+  }
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

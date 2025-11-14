@@ -1,0 +1,149 @@
+/* Background */
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  
+}
+.verify-page {
+   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffd6e6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: linear-gradient(180deg, rgba(236, 8, 104, 0.08), rgba(236, 8, 104, 0.02)); */
+  /* background: radial-gradient(circle at center, #ffe4ec 0%, #ffd6e6 50%, #ffcde0 100%); */
+  
+  font-family: "Poppins", sans-serif;
+  /* padding: 20px; */
+}
+
+/* Card */
+.verify-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(236, 8, 104, 0.2);
+  text-align: center;
+  padding: 40px 30px;
+  width: 100%;
+  max-width: 380px;
+  animation: fadeIn 0.4s ease;
+}
+
+/* Icon */
+.verify-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  color: #fff;
+  margin: 0 auto 20px;
+  box-shadow: 0 0 20px rgba(236, 8, 104, 0.4);
+  animation: pop 0.4s ease;
+}
+
+.success {
+  background-color: rgb(236, 8, 104);
+}
+
+.cancel {
+  background-color: #ff4d4d;
+}
+
+/* Text */
+.verify-card h2 {
+  color: rgb(236, 8, 104);
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.verify-card p {
+  color: #555;
+  font-size: 15px;
+  margin-bottom: 25px;
+  line-height: 1.4;
+}
+
+/* Button */
+.verify-card button {
+  background: rgb(236, 8, 104);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.verify-card button:hover {
+  background: rgb(200, 7, 88);
+  transform: translateY(-2px);
+}
+
+/* Loader */
+.loader {
+  border: 5px solid rgba(236, 8, 104, 0.2);
+  border-top: 5px solid rgb(236, 8, 104);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 25px;
+  animation: spin 1s linear infinite;
+}
+
+/* Animations */
+@keyframes spin {
+  0% { transform: rotate(0); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pop {
+  from { transform: scale(0.6); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+
+  .verify-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(236, 8, 104, 0.2);
+  text-align: center;
+  padding: 40px 30px;
+  width: 100%;
+  max-width: 230px;
+  animation: fadeIn 0.4s ease;
+}
+  .verify-card {
+    padding: 30px 20px;
+  }
+  .verify-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 35px;
+  }
+  .verify-card h2 {
+    font-size: 20px;
+  }
+  .verify-card p {
+    font-size: 14px;
+  }
+  .verify-card button {
+    width: 100%;
+  }
+}

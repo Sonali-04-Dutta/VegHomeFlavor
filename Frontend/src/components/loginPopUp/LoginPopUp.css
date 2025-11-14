@@ -1,0 +1,192 @@
+
+.login-popup {
+  position: fixed;                /* stays fixed in viewport, not tied to scroll */
+  top: 0;
+  left: 0;
+  z-index: 1000;                  /* higher than other elements */
+  width: 100%;
+  height: 100%;
+  background-color: #00000090;    /* transparent black overlay */
+  display: grid;
+  place-items: center;            /* centers the container */
+}
+.login-popup-container{
+    place-self: center;
+    width: max(23vw,330px);
+    color:#808080;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 25px 30px;
+    border-radius: 8px;
+    font-size: 14px;
+    animation: fadeIn 0.5s;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.login-popup-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+}
+
+.login-popup-title img{
+    width: 16px;
+    cursor: pointer;
+}
+
+.login-popup-inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login-popup-inputs input{
+    outline: none;
+    border: 1px solid #c9c9c9;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.login-popup-container button{
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    color: white;
+    background-color: rgb(236, 8, 104);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.login-popup-condition{
+    display: flex;
+    align-items: start;
+    gap: 8px;
+    margin-top: -15px;
+}
+
+.login-popup-condition input{
+    margin-top: 5px;
+}
+
+.login-popup p span{
+    color:rgb(236, 8, 104);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.password-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-field input {
+  width: 100%;
+  padding-right: 35px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.2rem;
+}
+
+button[disabled] {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+
+
+/* =====================
+   RESPONSIVENESS
+===================== */
+
+/* ✅ Tablets (≤768px) */
+@media (max-width: 768px) {
+  .login-popup-container {
+    width: 80%;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .login-popup-title h2 {
+    font-size: 1.3rem;
+  }
+
+  .login-popup-container button {
+    font-size: 14px;
+    padding: 9px;
+  }
+}
+
+/* ✅ Small mobiles (≤480px) */
+@media (max-width: 480px) {
+  .login-popup-container {
+    width: 90%;
+    padding: 18px;
+    border-radius: 8px;
+    gap: 18px;
+  }
+
+  .login-popup-title h2 {
+    font-size: 1.1rem;
+  }
+
+  .login-popup-inputs input {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+
+  .toggle-password {
+    font-size: 1rem;
+    right: 8px;
+  }
+
+  .login-popup-container button {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .login-popup-condition {
+    font-size: 12px;
+  }
+
+  .login-popup p {
+    font-size: 13px;
+  }
+}
+
+/* ✅ Ultra small screens (≤360px) */
+@media (max-width: 360px) {
+  .login-popup-container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .login-popup-title h2 {
+    font-size: 1rem;
+  }
+
+  .login-popup-inputs input {
+    font-size: 12px;
+  }
+
+  .login-popup-container button {
+    font-size: 12px;
+    padding: 7px;
+  }
+}

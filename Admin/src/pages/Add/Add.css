@@ -1,0 +1,160 @@
+/* ===== 🌿 Add Product Form Container ===== */
+.add {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 60px;
+  background: linear-gradient(180deg, #fff, #fafafa);
+  font-family: "Poppins", sans-serif;
+  color: #444;
+}
+
+/* ===== 🌸 Form Box ===== */
+.add form {
+  width: 60%; /* smaller width */
+  max-width: 600px; /* prevent it from stretching */
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 18px;
+  padding: 40px 45px;
+  box-shadow: 0 8px 24px rgba(236, 8, 104, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  transition: all 0.3s ease;
+}
+
+.add form:hover {
+  box-shadow: 0 12px 28px rgba(236, 8, 104, 0.12);
+}
+
+/* ===== 🩷 Upload Section ===== */
+.add-img-upload {
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed rgba(236, 8, 104, 0.4);
+  border-radius: 14px;
+  padding: 25px;
+  background: rgba(236, 8, 104, 0.02);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-img-upload:hover {
+  background: rgba(236, 8, 104, 0.05);
+  border-color: rgb(236, 8, 104);
+}
+
+.add-img-upload img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.add-img-upload img:hover {
+  transform: scale(1.08);
+}
+
+/* ===== 🌼 Labels ===== */
+.add p {
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+/* ===== 🌿 Input Fields ===== */
+.add input,
+.add select,
+.add textarea {
+  background: #fff;
+  border: 1.5px solid #ddd;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 15px;
+  outline: none;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.add input:focus,
+.add select:focus,
+.add textarea:focus {
+  border-color: rgb(236, 8, 104);
+  box-shadow: 0 0 0 3px rgba(236, 8, 104, 0.15);
+}
+
+/* ===== 🌼 Category and Price Layout ===== */
+.add-category-price {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.add-category,
+.add-price {
+  flex: 1;
+}
+
+/* ===== 🩵 Dropdown Styling ===== */
+.add select {
+  cursor: pointer;
+  background: #fff;
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #999 50%),
+    linear-gradient(135deg, #999 50%, transparent 50%);
+  background-position: calc(100% - 15px) center, calc(100% - 10px) center;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+.add select:hover {
+  border-color: rgb(236, 8, 104);
+}
+
+/* ===== 🌸 Submit Button ===== */
+.add-btn {
+  align-self: center;
+  background: rgb(236, 8, 104);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 30px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(236, 8, 104, 0.3);
+}
+
+.add-btn:hover {
+  background: rgb(200, 6, 88);
+  box-shadow: 0 6px 18px rgba(236, 8, 104, 0.4);
+  transform: translateY(-2px);
+}
+
+/* ===== 🌈 Responsive ===== */
+@media (max-width: 768px) {
+  .add {
+    align-items: center;
+    padding-top: 40px;
+  }
+
+  .add form {
+    width: 90%;
+    padding: 30px 25px;
+  }
+
+  .add-category-price {
+    flex-direction: column;
+  }
+
+  .add-btn {
+    width: 100%;
+  }
+}

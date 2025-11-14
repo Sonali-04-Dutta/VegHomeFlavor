@@ -1,0 +1,237 @@
+/* =======================
+   HEADER + SLIDER
+======================= */
+.header {
+  height: auto;
+  margin: 20px auto;
+  max-width: 1300px; /* keeps it centered on large screens */
+  margin-top: 140px;
+}
+
+.slider {
+  width: 100%;
+  height: 50vw;        /* scales height relative to screen width */
+  max-height: 500px;   /* prevent it from getting too tall */
+  overflow: hidden;    /* clips children */
+  border-radius: 20px; /* rounded corners */
+  position: relative;
+}
+
+/* Figure wraps all slides */
+figure {
+  position: relative;
+  left: 0;
+  width: 400%; /* 4 slides total */
+  animation: 10s slide infinite;
+}
+
+.slide {
+  position: relative;
+  width: 25%; /* 100 / 4 = 25% */
+  float: left;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* keeps images proportional */
+  border-radius: inherit; /* ✅ ensures rounded corners */
+}
+
+/* =======================
+   SLIDE TEXT
+======================= */
+.slide-text {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  color: white;
+  max-width: 50%;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+}
+
+.slider {
+  width: 100%;
+  height: 50vw;        /* scales height relative to screen width */
+  max-height: 500px;   /* prevent it from getting too tall */
+  overflow: hidden;    /* clips children */
+  border-radius: 20px; 
+  border-bottom: 20px;/* rounded corners */
+  position: relative;
+}
+
+
+.slide-text h2 {
+  font-size: 3vw; /* responsive scaling */
+  margin-bottom: 10px;
+}
+
+.slide-text p {
+  font-size: 1.5vw;
+  margin-bottom: 15px;
+}
+
+.slide-text button {
+  padding: 8px 16px;
+  background: white;
+  color: #747474;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: 0.3s ease;
+}
+
+.slide-text button:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+/* =======================
+   SLIDER ANIMATION
+======================= */
+@keyframes slide {
+  0%, 10%   { left: 0; }
+  20%, 30%  { left: -100%; }
+  40%, 50%  { left: -200%; }
+  55%, 65%  { left: -300%; }
+  66%, 74%  { left: -200%; }
+  75%, 85%  { left: -100%; }
+  90%, 100% { left: 0; }
+}
+
+/* =======================
+   RESPONSIVE TABLETS
+======================= */
+@media (max-width: 768px) {
+  /*  */
+  .slider {
+    height: 55vw;
+    width: 100%;
+    overflow: hidden;  
+    border-radius: 20px;
+    position: relative;
+    border-radius: 20px;
+  }
+  .slide-text {
+    top: 10%;
+    max-width: 80%;
+    max-height: 170px;       /* ✅ scroll if too long */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+   
+  .slide-text h2 {
+    font-size: 3vw;
+  }
+  .slide-text p {
+    font-size: 1.8vw;
+  }
+  
+   .slide-text button {
+  padding: 5px 12px;       /* smaller padding */
+  background: #fff;
+  color: #555;
+  border: 1px solid #ccc;  /* subtle border */
+  border-radius: 20px;     /* pill-shaped button */
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.85rem;      /* smaller text */
+  transition: all 0.3s ease;
+}
+
+.slide-text button:hover {
+  background: #f7f7f7;
+  border-color: #999;
+  color: #333;
+  transform: scale(1.05);  /* tiny hover grow */
+}
+
+.slide img {
+    height: auto;
+    min-height: 280px; /* ✅ fallback for tiny screens */
+    
+  }
+ 
+.slider figure,
+.slider .slide,
+.slider .slide img {
+  border-radius: inherit;
+  
+}
+}
+
+/* =======================
+   RESPONSIVE PHONES
+======================= */
+@media (max-width: 480px) {
+
+  .header {
+    margin-top: 90px; /* Slightly smaller for mobile navbar */
+  }
+  .slider {
+    height: 65vw;
+    width: 100%;
+    overflow: hidden;  
+    border-radius: 20px;
+    position: relative;
+    border-radius: 20px;
+  }
+
+  /* Make sure inner containers & images also respect the radius */
+  .slider figure,
+  .slider .slide,
+  .slider .slide img {
+    border-radius: inherit; 
+  }
+
+  .slide-text {
+    top: 10%;
+    left: 8%;
+    max-width: 80%;
+    max-height: 130px;         /* ✅ limit block height */
+    overflow-y: auto;          /* vertical scroll only */
+    overflow-x: hidden;        /* prevent side scroll */
+    -webkit-overflow-scrolling: touch; /* smooth scroll */
+  }
+
+  .slide-text h2 {
+    font-size: 3.6vw;
+  }
+
+  .slide-text p {
+    font-size: 2.7vw;
+  }
+
+ 
+
+  .slide-text button {
+  padding: 5px 12px;       /* smaller padding */
+  background: #fff;
+  color: #555;
+  border: 1px solid #ccc;  /* subtle border */
+  border-radius: 20px;     /* pill-shaped button */
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.85rem;      /* smaller text */
+  transition: all 0.3s ease;
+}
+
+.slide-text button:hover {
+  background: #f7f7f7;
+  border-color: #999;
+  color: #333;
+  transform: scale(1.05);  /* tiny hover grow */
+}
+
+
+  /* Ensure images don't squish */
+
+  .slide img {
+    height: auto;
+    min-height: 190px; /* ✅ fallback for tiny screens */
+    
+  }
+}

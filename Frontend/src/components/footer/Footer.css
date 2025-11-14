@@ -1,0 +1,166 @@
+.footer {
+  color: #d9d9d9;
+  background: linear-gradient(180deg, #323232 0%, #1e1e1e 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 60px 0 30px; /* remove side padding to center width */
+  margin-top: 120px;
+  
+  position: relative;
+  overflow: hidden;
+}
+
+/* ✨ Decorative Glow Gradient Overlay */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at top center,
+    rgba(236, 8, 104, 0.1),
+    transparent 70%
+  );
+  z-index: 0;
+}
+
+/* MAIN CONTENT AREA (Now 85% width) */
+.footer-content {
+  width: 85%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 80px;
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+}
+
+/* Sections */
+.footer-content-left,
+.footer-content-right,
+.footer-content-center {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: start;
+}
+
+/* Links */
+.footer-content-left li,
+.footer-content-center li,
+.footer-content-right li {
+  list-style: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-content-left li:hover,
+.footer-content-center li:hover,
+.footer-content-right li:hover {
+  color: rgb(236, 8, 104);
+  transform: translateX(6px);
+}
+
+/* Section Titles */
+.footer-content-center h2,
+.footer-content-right h2 {
+  color: white;
+  font-size: 1.3rem;
+  position: relative;
+}
+
+.footer-content-center h2::after,
+.footer-content-right h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 40px;
+  height: 3px;
+  background-color: rgb(236, 8, 104);
+  border-radius: 2px;
+}
+
+/* Social Icons */
+.footer-social-icons {
+  display: flex;
+  align-items: center;
+}
+
+.footer-social-icons img {
+  width: 36px;
+  margin-right: 15px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: brightness(0.9);
+}
+
+.footer-social-icons img:hover {
+  transform: scale(1.15);
+  filter: brightness(1.3);
+}
+
+/* Divider */
+.footer hr {
+  width: 85%;
+  max-width: 1200px;
+  height: 1.5px;
+  margin: 25px 0 15px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: none;
+}
+
+/* Copyright */
+.footer-copyright {
+  width: 85%;
+  max-width: 1200px;
+  font-size: 0.9rem;
+  color: #b3b3b3;
+  text-align: center;
+  z-index: 1;
+}
+
+/* ✨ Hover Glow Animation on Entire Footer */
+.footer:hover {
+  box-shadow: 0 0 40px rgba(236, 8, 104, 0.1);
+  transition: box-shadow 0.5s ease;
+}
+
+/* Responsive */
+@media (max-width: 750px) {
+  .footer-content {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    text-align: center;
+  }
+
+  .footer-content-left,
+  .footer-content-center,
+  .footer-content-right {
+    align-items: center;
+  }
+
+  .footer-content-center h2::after,
+  .footer-content-right h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer hr,
+  .footer-copyright {
+    width: 90%;
+  }
+}
+
+.github{
+  border-radius: 50%;
+  background-color: #323232;
+}

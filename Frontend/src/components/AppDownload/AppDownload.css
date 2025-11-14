@@ -1,0 +1,88 @@
+.app-download {
+  text-align: center;
+  padding: 80px 20px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  background: linear-gradient(180deg, #fff 0%, #fff0f6 100%);
+  transition: all 0.6s ease;
+  opacity: 0.9;
+}
+
+.app-download p {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.app-download strong {
+  color: rgb(236, 8, 104);
+}
+
+.app-download .subtext {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 35px;
+}
+
+.app-download-platforms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+.app-download-platforms img {
+  width: 150px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+}
+
+.app-download-platforms img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(236, 8, 104, 0.2);
+}
+
+.app-download-stats {
+  margin-top: 30px;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Active state glow (when scrolled into view) */
+.app-download.active-glow {
+  background: linear-gradient(135deg, #fff0f6, #ffe6ef);
+  box-shadow: 0 0 30px rgba(236, 8, 104, 0.25);
+  transform: scale(1.02);
+  opacity: 1;
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 20px rgba(236, 8, 104, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(236, 8, 104, 0.35);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(236, 8, 104, 0.2);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .app-download {
+    padding: 60px 15px;
+  }
+
+  .app-download p {
+    font-size: 1.3rem;
+  }
+
+  .app-download-platforms img {
+    width: 100px;
+  }
+}

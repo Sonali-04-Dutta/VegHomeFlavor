@@ -1,0 +1,251 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  
+}
+
+/* Fullscreen pink background */
+.not-found {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(236, 8, 104);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Center card */
+.not-found-center {
+  background: white;
+  height: 85%;
+  width: 85%;
+  border-radius: 24px;
+  padding: 40px 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(236, 8, 104);
+  /* animation: popIn 0.5s ease forwards;
+   /* */
+ /* box-shadow: 0 10px 40px rgba(236, 8, 104, 0.25),
+              0 0 80px rgba(236, 8, 104, 0.05) inset;
+               animation: fadeIn 1.2s ease-in-out;
+  transition: all 0.4s ease;  */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1),
+              0 20px 60px rgba(0,0,0,0.15);
+animation: popIn 0.5s ease forwards;
+transition: transform 0.3s ease,
+            box-shadow 0.3s ease;
+
+
+}
+
+.not-found-center:hover{
+  transform:translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.12),
+  0 25px 70px rgba(0,0,0,0.2);
+}
+
+/* pop-in animation  */
+@keyframes popIn{
+  from{
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to{
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+/* 
+.not-found-center:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 50px rgba(236, 8, 104, 0.35),
+              0 0 100px rgba(236, 8, 104, 0.08) inset;
+} */
+
+.donut{
+  height: 130px;
+  width: 130px;
+}
+
+/* ========= Logo Section ========= */
+.font {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1px;
+}
+
+.logo2 {
+  width: 100px;
+  height: 100px;
+  margin-right: 8px;
+  object-fit: contain;
+  /* object-fit: contain; */
+  animation: floatLogo 3s ease-in-out infinite;
+}
+
+.res_name2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: rgb(236, 8, 104);
+}
+
+/* ========= Headings ========= */
+.not-found-center h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.not-found-center h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: rgb(236, 8, 104);
+  margin: 1rem 0 0.5rem 0;
+}
+
+.not-found-center h4 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #777;
+  margin-bottom: 1.5rem;
+}
+
+/* ========= Error Code (404) ========= */
+.error-code {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15rem; /* 🔥 Much larger 404 */
+  font-weight: 900;
+  color: rgb(236, 8, 104);
+  margin: 0.5rem 0 1.5rem 0;
+}
+
+.error-code .four {
+  display: inline-block;
+  line-height: 1;
+}
+
+.error-code .donut {
+  width: 180px; /* larger donut */
+  height: 180px;
+  margin: 0 20px;
+  object-fit: contain;
+  animation: spin 5s linear infinite;
+}
+
+/* Spinning animation */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ========= Button ========= */
+.home-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: rgb(236, 8, 104);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 10px 24px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.home-btn:hover {
+  background-color: rgb(200, 6, 88);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(236, 8, 104, 0.3);
+}
+
+/* ========= Responsive Design ========= */
+@media (max-width: 992px) {
+  .error-code {
+    font-size: 10rem;
+  }
+
+  .error-code .donut {
+    width: 130px;
+    height: 130px;
+  }
+
+  .res_name {
+    font-size: 1.4rem;
+  }
+
+  .not-found-center h1 {
+    font-size: 1.8rem;
+  }
+
+  .not-found-center h3 {
+    font-size: 1.2rem;
+  }
+
+  .not-found-center h4 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .error-code {
+    font-size: 7rem;
+  }
+
+  .error-code .donut {
+    width: 90px;
+    height: 90px;
+  }
+
+  .res_name2 {
+    font-size: 0.9rem;       /* reduced from ~1.6rem */
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .logo2 {
+    width: 80px;
+    height: 80px;
+  }
+
+  .font {
+    flex-direction: column; /* Stack logo above text if screen is narrow */
+    gap: 1px;
+    align-items: center;
+  }
+
+  .not-found-center h1 {
+    font-size: 1.6rem;
+  }
+
+  .not-found-center h3 {
+    font-size: 1.1rem;
+  }
+
+  .not-found-center h4 {
+    font-size: 0.95rem;
+  }
+
+  .home-btn {
+    font-size: 0.9rem;
+    padding: 9px 22px;
+  }
+}
+
