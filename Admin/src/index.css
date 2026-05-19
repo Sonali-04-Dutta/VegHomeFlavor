@@ -5,7 +5,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: outfit;
+  font-family: Outfit, Poppins, sans-serif;
 }
 
 body{
@@ -26,4 +26,32 @@ hr{
 
 .app-content{
   display: flex;
+  align-items: stretch;
+  min-height: calc(100vh - 155px);
+}
+
+.admin-main {
+  flex: 1;
+  min-width: 0;
+  background: #f8fafc;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+@media (max-width: 900px) {
+  .app-content {
+    min-height: calc(100vh - 112px);
+  }
+}
+
+@media (max-width: 768px) {
+  .app-content {
+    flex-direction: column;
+    min-height: auto;
+  }
 }

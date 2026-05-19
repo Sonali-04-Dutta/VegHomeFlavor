@@ -1,15 +1,11 @@
 .list {
-  width: 70%;
-  margin-left: 300px;
-  margin-top: 30px;
-  /* margin: 40px auto; */
-   /* padding: 90px 60px; */
+  width: min(100% - 48px, 980px);
+  margin: 30px auto;
   background: #ffffff;
-  border-radius: 16px;
+  border-radius: 14px;
   box-shadow: 0 4px 14px rgba(0,0,0,0.1);
   padding: 25px 35px;
   font-family: 'Poppins', sans-serif;
-  /* position: fixed; */
 }
 
 .list-title {
@@ -25,6 +21,8 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 4px;
 }
 
 .list-table-header,
@@ -34,6 +32,8 @@
   align-items: center;
   padding: 10px 15px;
   border-radius: 10px;
+  min-width: 620px;
+  gap: 12px;
 }
 
 .list-table-header {
@@ -69,6 +69,7 @@
   font-size: 16px;
   cursor: pointer;
   transition: background 0.3s, transform 0.1s;
+  min-width: 38px;
 }
 
 .delete-btn:hover {
@@ -86,18 +87,30 @@
 /* Responsive design */
 @media (max-width: 768px) {
   .list {
-    width: 90%;
-    padding: 15px;
+    width: calc(100% - 32px);
+    margin: 22px auto;
+    padding: 18px;
+  }
+
+  .list-title {
+    font-size: 1.45rem;
+    margin-bottom: 18px;
   }
 
   .list-table-header,
   .list-table-row {
-    grid-template-columns: 1fr 1.5fr 1fr 1fr 0.5fr;
     font-size: 14px;
   }
 
   .list-table-row img {
     width: 45px;
     height: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  .list {
+    width: calc(100% - 24px);
+    padding: 14px;
   }
 }

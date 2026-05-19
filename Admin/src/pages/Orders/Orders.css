@@ -1,7 +1,6 @@
 .order {
-  padding: 40px 60px;
-  /* left:50px; */
-  margin-left: 140px;
+  width: 100%;
+  padding: clamp(24px, 4vw, 40px) clamp(16px, 5vw, 60px);
   background: #f8fafc;
   min-height: 100vh;
   font-family: "Poppins", sans-serif;
@@ -9,7 +8,6 @@
   flex-direction: column;
   align-items: center;
   transition: all 0.3s ease-in-out;
-  /* gap: 2px; */
 }
 
 /* Centered Header */
@@ -55,11 +53,12 @@
 
 /* Each Order Card */
 .order-item {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(220px, 1fr) auto auto minmax(170px, auto);
+  gap: 18px;
   align-items: flex-start;
-  justify-content: space-between;
   background: #ffffff;
-  border-radius: 16px;
+  border-radius: 14px;
   padding: 22px 28px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -75,7 +74,6 @@
   width: 55px;
   height: 55px;
   object-fit: contain;
-  margin-right: 22px;
   background: #ffe6ef;
   border-radius: 14px;
   padding: 10px;
@@ -111,7 +109,6 @@
 
 /* Right-side Info (Count & Price) */
 .order-item > p {
-  margin-left: 10px;
   font-weight: 600;
   color: #333;
   min-width: 90px;
@@ -155,8 +152,13 @@
   }
 
   .order-item {
-    flex-wrap: wrap;
+    grid-template-columns: auto minmax(220px, 1fr) auto auto;
     gap: 16px;
+  }
+
+  .order-item select {
+    grid-column: 2 / -1;
+    width: min(100%, 260px);
   }
 
   .order-item img {
@@ -172,7 +174,7 @@
 
 @media (max-width: 768px) {
   .order {
-    padding: 20px;
+    padding: 22px 16px 28px;
   }
 
   .order h3 {
@@ -180,21 +182,23 @@
   }
 
   .order-item {
-    flex-direction: column;
-    align-items: flex-start;
+    grid-template-columns: auto 1fr;
     gap: 10px;
     padding: 18px;
   }
 
-  .order-item img {
-    margin-bottom: 8px;
+  .order-item > div {
+    min-width: 0;
   }
 
   .order-item > p {
+    grid-column: 1 / -1;
     text-align: left;
+    min-width: 0;
   }
 
   .order-item select {
+    grid-column: 1 / -1;
     width: 100%;
   }
 }

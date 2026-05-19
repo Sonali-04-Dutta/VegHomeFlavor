@@ -1,9 +1,9 @@
-/* Navbar container */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 4%;
+  gap: 18px;
+  padding: 10px clamp(16px, 4vw, 54px);
   background-color: #fff;
   border-bottom: 2px solid #e0e0e0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
@@ -12,42 +12,30 @@
   z-index: 10;
 }
 
-/* Title section: logo + text */
 .title {
   display: flex;
   align-items: center;
-  /* gap: 15px; */
+  min-width: 0;
 }
 
-/* Large logo */
 .logo {
-  width: 120px;
-  height: 120px;
-  object-fit: contain;
-
-}
-
-
-/* 🌸 VegHome Logo with transform animation */
-.logo {
-  width: 130px;
-  height: 130px;
+  width: clamp(74px, 9vw, 130px);
+  height: clamp(74px, 9vw, 130px);
+  flex: 0 0 auto;
   object-fit: contain;
   transition: transform 0.5s ease, filter 0.5s ease;
   filter: drop-shadow(0 3px 6px rgba(236, 8, 104, 0.15));
   transform-origin: center;
 }
 
-/* ✨ Hover animation for logo */
 .logo:hover {
   transform: scale(1.1) rotate(3deg);
-  filter: drop-shadow(0 6px 10px rgba(236, 8, 104, 0.35))
-          brightness(1.1);
+  filter: drop-shadow(0 6px 10px rgba(236, 8, 104, 0.35)) brightness(1.1);
 }
 
-/* 💨 Optional: gentle floating animation */
 @keyframes floatLogo {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -55,75 +43,86 @@
   }
 }
 
-/* 👑 Continuous subtle motion (optional aesthetic) */
 .logo.animate {
   animation: floatLogo 3s ease-in-out infinite;
 }
 
-
-
-
-/* Text group (VegHomeFlavor + Admin Panel) */
 .text-group {
   display: flex;
   flex-direction: column;
   line-height: 1.2;
+  min-width: 0;
 }
 
-/* Main title */
 .text-group h1 {
-  font-size: 2.3rem;
+  font-size: clamp(1.45rem, 3vw, 2.3rem);
   font-weight: 700;
   color: rgb(236, 8, 104);
   margin: 0;
+  overflow-wrap: anywhere;
 }
 
-/* Subtitle */
 .text-group h3 {
-  font-size: 1.5rem;
+  font-size: clamp(0.95rem, 2vw, 1.5rem);
   font-weight: 600;
   color: rgb(120, 125, 125);
-  margin: 0;
-  margin-top: 4px;
+  margin: 4px 0 0;
 }
 
-/* Profile image */
 .profile {
   border-radius: 50%;
-  width: 110px;
-  height: 110px;
+  width: clamp(54px, 8vw, 110px);
+  height: clamp(54px, 8vw, 110px);
+  flex: 0 0 auto;
   object-fit: cover;
   border: 2px solid #e0e0e0;
   transition: transform 0.3s ease;
-  /* border: 1.3px solid black; */
 }
 
 .profile:hover {
   transform: scale(1.05);
 }
 
-/* Responsive for smaller devices */
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .navbar {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 12px;
+    padding: 12px 16px;
   }
 
   .logo {
-    display: none;
+    width: 56px;
+    height: 56px;
   }
 
   .text-group h1 {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
   }
 
   .text-group h3 {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
   }
 
   .profile {
     width: 55px;
     height: 55px;
+  }
+}
+
+@media (max-width: 420px) {
+  .navbar {
+    gap: 10px;
+  }
+
+  .logo {
+    width: 46px;
+    height: 46px;
+  }
+
+  .text-group h1 {
+    font-size: 1.05rem;
+  }
+
+  .profile {
+    width: 46px;
+    height: 46px;
   }
 }

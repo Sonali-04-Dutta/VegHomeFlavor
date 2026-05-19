@@ -4,6 +4,7 @@ import { assets } from '../../assets/assets';
 import { StoreContext } from '../context/StoreContext';
 
 const FoodItem = ({ id, name, price, description, image }) => {
+  console.log(image)
   const { cartItems, addToCart, removeFromCart,url } = useContext(StoreContext);
 
   // ✅ Format directly in Indian Rupees (no conversion)
@@ -20,7 +21,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
       <div className="food-item-image-container">
         <img className="food-item-img" src={url+"images/" +image} alt={name} />
 
-        {!cartItems[id] ? (
+        {!cartItems?.[id] ? (
           <img
             className='add'
             onClick={() => addToCart(id)}
@@ -30,7 +31,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
         ) : (
           <div className='food-item-counter'>
             <img onClick={() => removeFromCart(id)} src={assets.remove_icon_red} alt="remove" />
-            <p>{cartItems[id]}</p>
+            <p>{cartItems?.[id]}</p>
             <img onClick={() => addToCart(id)} src={assets.add_icon_green} alt="add" />
           </div>
         )}

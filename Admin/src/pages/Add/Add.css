@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding-top: 60px;
+  padding: clamp(24px, 5vw, 60px);
   background: linear-gradient(180deg, #fff, #fafafa);
   font-family: "Poppins", sans-serif;
   color: #444;
@@ -13,12 +13,11 @@
 
 /* ===== 🌸 Form Box ===== */
 .add form {
-  width: 60%; /* smaller width */
-  max-width: 600px; /* prevent it from stretching */
+  width: min(100%, 640px);
   background: #fff;
   border: 1px solid #eee;
-  border-radius: 18px;
-  padding: 40px 45px;
+  border-radius: 14px;
+  padding: clamp(24px, 4vw, 40px);
   box-shadow: 0 8px 24px rgba(236, 8, 104, 0.08);
   display: flex;
   flex-direction: column;
@@ -71,6 +70,7 @@
 .add input,
 .add select,
 .add textarea {
+  width: 100%;
   background: #fff;
   border: 1.5px solid #ddd;
   border-radius: 10px;
@@ -141,12 +141,10 @@
 /* ===== 🌈 Responsive ===== */
 @media (max-width: 768px) {
   .add {
-    align-items: center;
-    padding-top: 40px;
+    padding: 22px 16px 28px;
   }
 
   .add form {
-    width: 90%;
     padding: 30px 25px;
   }
 
@@ -156,5 +154,16 @@
 
   .add-btn {
     width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .add form {
+    padding: 22px 16px;
+    gap: 20px;
+  }
+
+  .add-img-upload {
+    padding: 18px;
   }
 }

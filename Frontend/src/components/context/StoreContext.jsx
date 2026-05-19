@@ -46,10 +46,10 @@ const StoreContextProvider = (props) => {
 
   // ➕ Add to cart
   const addToCart = async (itemId) => {
-    setCartItems((prev) => ({
-      ...prev,
-      [itemId]: (prev[itemId] || 0) + 1,
-    }));
+    setCartItems((prev = {}) => ({
+  ...prev,
+  [itemId]: (prev[itemId] || 0) + 1,
+}));
     if (token) {
       await axios.post(url + "api/cart/add",{itemId},{headers:{token}})
     }
@@ -57,7 +57,7 @@ const StoreContextProvider = (props) => {
 
   // ➖ Remove from cart
   const removeFromCart = async (itemId) => {
-    setCartItems((prev) => {
+   setCartItems((prev = {}) => {
       const updatedCart = { ...prev };
       if (updatedCart[itemId] > 1) {
         updatedCart[itemId] -= 1;
