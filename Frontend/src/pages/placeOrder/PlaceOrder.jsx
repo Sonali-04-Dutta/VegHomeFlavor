@@ -12,6 +12,7 @@ let userId = "";
 
 if (token) {
   const decoded = jwtDecode(token);
+  console.log(decoded);
   userId = decoded.id;
 }
   const [loading, setLoading] = useState(false);
