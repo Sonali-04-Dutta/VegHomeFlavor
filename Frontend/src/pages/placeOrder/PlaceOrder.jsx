@@ -87,10 +87,10 @@ if (token) {
       discount: promoData.discount || 0,
       amount: totalINR,
     };
-try{
-    const response = await axios.post(`${url}/api/order/place`, orderData, {
-  headers: { token },
-});
+    try {
+      const response = await axios.post(`${url}api/order/place`, orderData, {
+        headers: { token },
+      });
 
       if (response.data.success) {
         window.location.replace(response.data.session_url);
@@ -99,7 +99,10 @@ try{
       }
     } catch (err) {
       console.error("❌ Order failed:", err);
-      alert("Something went wrong while placing your order.");
+      const message =
+        err?.response?.data?.message ||
+        "Something went wrong while placing your order.";
+      alert(message);
     } finally {
       setLoading(false);
     }

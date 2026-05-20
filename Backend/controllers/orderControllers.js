@@ -4,6 +4,14 @@ import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
+const getCheckoutFrontendUrl = (req) => {
+  const origin = req.get("origin");
+  const configuredUrl = process.env.FRONTEND_URL;
+  const rawUrl = origin || configuredUrl || "http://localhost:5173";
+
+  return rawUrl.replace(/\/+$/, "");
+};
+
 const previewOrder = async (req, res) => {
   try {
     const { items, promoCode, userId } = req.body;
@@ -42,10 +50,24 @@ const previewOrder = async (req, res) => {
   }
 };
 const placeOrder = async (req, res) => {
-  const frontend_url = (process.env.FRONTEND_URL || "http://localhost:5173").replace(/\/+$/, "");
+  const frontend_url = getCheckoutFrontendUrl(req);
 
   try {
     const { userId, items, address, promoCode, discount } = req.body;
+
+    if (!process.env.STRIPE_SECRET_KEY) {
+      return res.status(500).json({
+        success: false,
+        message: "Stripe is not configured on the server.",
+      });
+    }
+
+    if (!items || items.length === 0) {
+      return res.json({
+        success: false,
+        message: "Your cart is empty. Please add items before checkout.",
+      });
+    }
 
     const subtotal = items.reduce(
       (sum, item) => sum + item.price * item.quantity,
@@ -94,10 +116,10 @@ const placeOrder = async (req, res) => {
       success_url: `${frontend_url}/verify?success=true&session_id={CHECKOUT_SESSION_ID}&userId=${userId}`,
       cancel_url: `${frontend_url}/verify?success=false`,
       metadata: {
-        userId,
+        userId: String(userId || ""),
         address: JSON.stringify(address),
         items: JSON.stringify(items),
-        totalAmount: totalBeforeDiscount - (discount || 0),
+        totalAmount: String(totalBeforeDiscount - (discount || 0)),
       },
     };
 
@@ -110,7 +132,7 @@ const placeOrder = async (req, res) => {
     res.json({ success: true, session_url: session.url });
   } catch (error) {
     console.error("Stripe Error:", error.message);
-    res.json({ success: false, message: error.message });
+    res.status(500).json({ success: false, message: error.message });
   }
 };
 
