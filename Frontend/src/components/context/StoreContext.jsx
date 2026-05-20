@@ -5,15 +5,27 @@ import axios from "axios";
 
 export const StoreContext = createContext(null);
 
+const getApiBaseUrl = () => {
+  const envApiUrl = import.meta.env.VITE_API_URL;
+
+  if (envApiUrl) {
+    return envApiUrl;
+  }
+
+  if (typeof window !== "undefined" && window.location.hostname !== "localhost") {
+    return "https://veghomeflavor.onrender.com";
+  }
+
+  return "http://localhost:4000";
+};
+
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
-  const url = "http://localhost:4000/";
+  const apiBaseUrl = getApiBaseUrl();
+  const url = `${apiBaseUrl.replace(/\/+$/, "")}/`;
   // const [token, setToken] = useState("");
   const [token, setToken] = useState(() => localStorage.getItem("token") || "");
   const[food_list,setFoodList]=useState([])
-
-// const url = "http://localhost:4000/";
-
 
     
  // ✅ Whenever token changes, update localStorage
@@ -33,15 +45,24 @@ const StoreContextProvider = (props) => {
   }, [token]);
 
   const loadCartData = async (token) => {
-    const response = await axios.post(url + "api/cart/get", {}, { headers: { token } })
-    setCartItems(response.data.cartData);
+    try {
+      const response = await axios.post(url + "api/cart/get", {}, { headers: { token } })
+      setCartItems(response.data.cartData || {});
+    } catch (error) {
+      console.error("Error loading cart data:", error);
+    }
   }
 
 
   // 🧩adding food_list items from backend
   const fetchFoodList = async () => {
-    const response = await axios.get(url + "api/food/list");
-    setFoodList(response.data.data);
+    try {
+      const response = await axios.get(url + "api/food/list");
+      setFoodList(response.data.data || []);
+    } catch (error) {
+      console.error("Error fetching food list:", error);
+      setFoodList([]);
+    }
   }
 
   // ➕ Add to cart

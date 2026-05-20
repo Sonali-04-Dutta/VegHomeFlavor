@@ -19,4 +19,18 @@ export const assets ={
     home
 }
 
-export const url = 'http://localhost:4000'
+const getApiBaseUrl = () => {
+    const envApiUrl = import.meta.env.VITE_API_URL
+
+    if (envApiUrl) {
+        return envApiUrl
+    }
+
+    if (typeof window !== 'undefined' && window.location.hostname !== 'localhost') {
+        return 'https://veghomeflavor.onrender.com'
+    }
+
+    return 'http://localhost:4000'
+}
+
+export const url = getApiBaseUrl().replace(/\/+$/, '')

@@ -6,9 +6,23 @@ import Add from './pages/Add/Add'
 import List from './pages/List/List'
 import Orders from './pages/Orders/Orders'
 
+const getApiBaseUrl = () => {
+  const envApiUrl = import.meta.env.VITE_API_URL;
+
+  if (envApiUrl) {
+    return envApiUrl;
+  }
+
+  if (typeof window !== "undefined" && window.location.hostname !== "localhost") {
+    return "https://veghomeflavor.onrender.com";
+  }
+
+  return "http://localhost:4000";
+};
+
 const App = () => {
 
-  const url = "http://localhost:4000";
+  const url = getApiBaseUrl().replace(/\/+$/, "");
   return (
     <div>
       <Navbar />

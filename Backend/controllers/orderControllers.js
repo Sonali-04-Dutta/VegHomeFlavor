@@ -42,7 +42,7 @@ const previewOrder = async (req, res) => {
   }
 };
 const placeOrder = async (req, res) => {
-  const frontend_url = "http://localhost:5173";
+  const frontend_url = (process.env.FRONTEND_URL || "http://localhost:5173").replace(/\/+$/, "");
 
   try {
     const { userId, items, address, promoCode, discount } = req.body;

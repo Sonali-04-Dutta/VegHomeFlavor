@@ -33,8 +33,8 @@ const LoginPopUp = ({ setShowLogIn }) => {
       toast.error("Please enter a valid email address.")
       return false
     }
-    if (data.password.length < 6) {
-      toast.error("Password must be at least 6 characters long.")
+    if (data.password.length < 8) {
+      toast.error("Password must be at least 8 characters long.")
       return false
     }
     if (currState === "Sign Up" && data.name.trim().length < 2) {
