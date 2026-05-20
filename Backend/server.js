@@ -24,13 +24,17 @@ app.use(express.json());
 app.use(
   cors({
     origin(origin, callback) {
-      if (!origin || allowedOrigins.length === 0 || allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      }
+  if (
+    !origin ||
+    allowedOrigins.includes(origin) ||
+    origin.includes("vercel.app")
+  ) {
+    return callback(null, true);
+  }
 
-      return callback(new Error(`Origin ${origin} is not allowed by CORS`));
-    },
-    credentials: true,
+  return callback(new Error(`Origin ${origin} is not allowed by CORS`));
+},
+credentials: true,
   })
 );
 
