@@ -3,9 +3,17 @@ import "./placeOrder.css";
 import { StoreContext } from "../../components/context/StoreContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 
 const PlaceOrder = () => {
   const { cartItems, food_list, token, url } = useContext(StoreContext);
+
+let userId = "";
+
+if (token) {
+  const decoded = jwtDecode(token);
+  userId = decoded.id;
+}
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState({
     firstName: "",
@@ -71,17 +79,17 @@ const PlaceOrder = () => {
       }));
 
     const orderData = {
+      userId,
       address: data,
       items: orderItems,
       promoCode: promoData.promoCode || null,
       discount: promoData.discount || 0,
       amount: totalINR,
     };
-
-    try {
-      const response = await axios.post(`${url}api/order/place`, orderData, {
-        headers: { token },
-      });
+try{
+    const response = await axios.post(`${url}/api/order/place`, orderData, {
+  headers: { token },
+});
 
       if (response.data.success) {
         window.location.replace(response.data.session_url);
