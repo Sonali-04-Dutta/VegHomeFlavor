@@ -19,6 +19,31 @@ const allowedOrigins = (process.env.CLIENT_URLS || process.env.FRONTEND_URL || "
   .map((origin) => origin.trim())
   .filter(Boolean);
 
+app.use(
+  cors({
+    origin: function (origin, callback) {
+
+      // allow requests with no origin
+      if (!origin) {
+        return callback(null, true);
+      }
+
+      // allow all vercel deployments
+      if (origin.includes("vercel.app")) {
+        return callback(null, true);
+      }
+
+      // allow manually added origins
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(new Error(`Origin ${origin} is not allowed by CORS`));
+    },
+    credentials: true,
+  })
+);
+
 // Middleware
 app.use(express.json());
 app.use(
